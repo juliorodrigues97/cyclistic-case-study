@@ -1,6 +1,3 @@
-# cyclistic-case-study
-Understanding Rider Behavior: A Data-Driven Analysis of Casual and Annual Members
-
 # 🚲 Cyclistic Case Study  
 ### Google Data Analytics Certificate — Behavioral Analysis of Casual vs. Annual Members
 
