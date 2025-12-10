@@ -129,4 +129,24 @@ Goal: nudge casual riders toward membership through targeted experiences and off
 
 ## 📂 Repository Structure
 
+cyclistic-case-study/
+├── data/ # Raw or linked datasets
+├── scripts/ # Data cleaning and analysis scripts
+├── visuals/ # Charts and visual assets
+├── final-report/ # PDF or dashboard files
+└── README.md # Documentation (this file)
+
+---
+
+## 📜 Conclusion
+Cyclistic now has a **clear understanding of behavioral differences** between annual members and casual riders.  
+Insights support **data-driven marketing strategies**, optimized membership plans, and partnerships that can increase casual-to-member conversions.  
+This capstone demonstrates how **analytics informs product strategy, marketing execution, and rider loyalty**.
+
+---
+
+## 👨‍💻 Author
+Julio Rodrigues  
+Data Analyst  
+LinkedIn | Portfolio | GitHub
 
