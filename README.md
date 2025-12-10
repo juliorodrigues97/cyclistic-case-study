@@ -130,6 +130,7 @@ Goal: nudge casual riders toward membership through targeted experiences and off
 ## 📂 Repository Structure
 
 cyclistic-case-study/
+
 ├── data/ # Raw or linked datasets
 
 ├── scripts/ # Data cleaning and analysis scripts
@@ -138,7 +139,7 @@ cyclistic-case-study/
 
 ├── final-report/ # PDF or dashboard files
 
-└── README.md # Documentation (this file)
+├── README.md # Documentation (this file)
 
 ---
 
