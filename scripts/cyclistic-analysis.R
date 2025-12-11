@@ -215,3 +215,4 @@ all_trips <- all_trips %>%
 
 write_csv(all_trips, "all_trips_cleaned.csv")
 
+
