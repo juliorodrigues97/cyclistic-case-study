@@ -99,7 +99,7 @@ Visualizations are in `/visuals`.
 Insights were shared via an **interactive Tableau dashboard**, summarizing user distribution, temporal patterns, ride duration, and spatial behavior.  
 Decision-makers can explore actionable opportunities for marketing strategies targeting casual riders.
 
-Dashboard files are in `/final-report`.
+Dashboard files are located in /dashboard.
 
 ---
 
