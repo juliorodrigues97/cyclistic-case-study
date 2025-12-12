@@ -131,15 +131,17 @@ Goal: nudge casual riders toward membership through targeted experiences and off
 
 cyclistic-case-study/
 
-├── data/ # Raw or linked datasets
+├── data/ # Linked datasets
 
-├── scripts/ # Data cleaning and analysis scripts
+├── scripts/ # Data cleaning and analysis scripts (.R)
 
-├── visuals/ # Charts and visual assets
+├── visuals/ # Charts, images used in report or dashboard
 
-├── final-report/ # PDF or dashboard files
+├── dashboard/ # Tableau dashboard files (.twb / .twbx)
 
-├── README.md # Documentation (this file)
+├── final-report/ # Final report (DOCX or PDF)
+
+├── README.md # Project documentation 
 
 ---
 
