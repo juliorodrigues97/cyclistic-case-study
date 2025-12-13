@@ -35,11 +35,14 @@ These questions inform marketing strategies designed to convert casual riders in
 - start_lat/lng, end_lat/lng  
 
 **Data Cleaning:**  
-- Negative or zero durations (8,153 trips) → replaced with NA  
-- Extreme durations (<1 min or >24 hours) → excluded from calculations  
-- Missing coordinates → retained (insignificant impact)  
-- Duplicates → none  
-- ROCCC evaluation: reliable, objective, complete, consistent, current  
+- Negative or zero trip durations (8,153 records) → set to NA
+- Extreme durations (<1 min or >24 hours) → excluded from analysis
+- Duplicate records → none detected
+- Missing values were assessed and did not impact the final analysis
+- Columns not relevant to the analysis (e.g., demographic attributes) were removed
+
+**Data Quality (ROCCC):**
+- Reliable, Objective, Complete, Consistent, Current
 
 All data is **anonymized** and stored in `/data`.
 
