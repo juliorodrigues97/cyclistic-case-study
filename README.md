@@ -155,6 +155,19 @@ This capstone demonstrates how **analytics informs product strategy, marketing e
 
 ---
 
+## 📄 Data License
+The data used in this analysis comes from the Divvy Bike Share System,
+operated by Lyft Bikes and Scooters, LLC, and made publicly available
+by the City of Chicago.
+
+The dataset is subject to the Divvy Data License Agreement and is used
+solely for non-commercial, educational, and analytical purposes.
+
+Source and license:
+https://www.divvybikes.com/system-data
+
+---
+
 ## 👨‍💻 Author
 Julio Rodrigues  
 Data Analyst  
