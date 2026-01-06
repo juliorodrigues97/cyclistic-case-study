@@ -48,7 +48,7 @@ These questions inform marketing strategies designed to convert casual riders in
 
 All data is **anonymized** and stored in `/data`.
 
-**⚠️ Limitations**
+### ⚠️ Limitations
 
 One important consideration is that the 2020 data reflects atypical mobility patterns due to the onset of the COVID-19 pandemic. As a result, some observed behavioral differences may not fully represent long-term, non-pandemic usage patterns. This should be considered when generalizing findings beyond the analyzed period.
 
