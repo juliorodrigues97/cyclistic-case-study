@@ -140,11 +140,11 @@ Goal: nudge casual riders toward membership through targeted experiences and off
 
 cyclistic-case-study/
 
-├── data/ # Linked datasets
+├── data/ # Raw and cleaned datasets
 
 ├── scripts/ # Data cleaning and analysis scripts (.R)
 
-├── visuals/ # Charts, images used in report or dashboard
+├── visuals/ Charts and images used in the report or dashboard
 
 ├── dashboard/ # Tableau dashboard files (.twb / .twbx)
 
