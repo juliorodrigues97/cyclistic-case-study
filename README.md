@@ -6,7 +6,9 @@
 ## 📌 Overview
 Cyclistic is a bike-share program in Chicago with **5,824 bicycles and 692 docking stations**, operating since 2016. Customers who purchase single-ride or full-day passes are classified as **casual riders**, while those with annual memberships are **Cyclistic members**.  
 
-Financial analysts have found that **annual members are significantly more profitable** than casual riders. This case study analyzes historical trip data to uncover behavioral differences, explore motivations that could drive casual riders to purchase memberships, and guide digital media strategies to support this conversion.  
+Financial analysts have found that **annual members are significantly more profitable** than casual riders. This case study analyzes historical trip data to uncover behavioral differences, explore motivations that could drive casual riders to purchase memberships, and guide digital media strategies to support this conversion.
+
+The analysis focuses on trips from Q1 2019 and Q1 2020, a period that includes the onset of the COVID-19 pandemic, which may have influenced mobility patterns and rider behavior.
 
 The analysis follows the **six-step data analytics process**: Ask → Prepare → Process → Analyze → Share → Act.
 
@@ -45,6 +47,9 @@ These questions inform marketing strategies designed to convert casual riders in
 - Reliable, Objective, Complete, Consistent, Current
 
 All data is **anonymized** and stored in `/data`.
+
+**⚠️ Limitations**
+One important consideration is that the 2020 data reflects atypical mobility patterns due to the onset of the COVID-19 pandemic. As a result, some observed behavioral differences may not fully represent long-term, non-pandemic usage patterns. This should be considered when generalizing findings beyond the analyzed period.
 
 ---
 
