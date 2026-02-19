@@ -97,7 +97,7 @@ Analysis focused on six dimensions:
 
 ### 6️⃣ Geographic Patterns
 - Members: widespread, residential/business areas  
-- Casuals: concentrated near tourist attractions  
+- Casuals: concentrated near waterfront areas and tourist attractions  
 - Insight: location-based marketing opportunities
 
 Visualizations are in `/visuals`.
