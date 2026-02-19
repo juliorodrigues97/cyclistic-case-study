@@ -177,5 +177,5 @@ https://www.divvybikes.com/system-data
 ## 👨‍💻 Author
 Julio Rodrigues  
 Data Analyst  
-LinkedIn | Portfolio | GitHub
+[LinkedIn](https://www.linkedin.com/in/julio-cesar-rodrigues/) | Portfolio | [GitHub](https://github.com/juliorodrigues97)
 
