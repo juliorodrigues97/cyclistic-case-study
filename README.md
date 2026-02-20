@@ -179,3 +179,7 @@ Julio Rodrigues
 Data Analyst  
 [LinkedIn](https://www.linkedin.com/in/julio-cesar-rodrigues/) | Portfolio | [GitHub](https://github.com/juliorodrigues97)
 
+---
+
+Backup: version using 2019-2020 data
+
