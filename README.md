@@ -4,13 +4,11 @@
 ---
 
 ## 📌 Overview
-Cyclistic is a bike-share program in Chicago with **5,824 bicycles and 692 docking stations**, operating since 2016. Customers who purchase single-ride or full-day passes are classified as **casual riders**, while those with annual memberships are **Cyclistic members**.  
+Cyclistic is a bike-share program in Chicago with 5,824 bicycles and 692 docking stations, operating since 2016. Customers who purchase single-ride or full-day passes are classified as casual riders, while those with annual memberships are Cyclistic members.
 
-Financial analysts have found that **annual members are significantly more profitable** than casual riders. This case study analyzes historical trip data to uncover behavioral differences, explore motivations that could drive casual riders to purchase memberships, and guide digital media strategies to support this conversion.
+Annual members represent the majority of recurring demand, while casual riders account for a significant portion of leisure usage. This case study analyzes historical trip data from 2024–2025 to uncover behavioral differences, explore motivations to convert casual riders to members, and guide marketing strategies.
 
-The analysis focuses on trips from Q1 2019 and Q1 2020, a period that includes the onset of the COVID-19 pandemic, which may have influenced mobility patterns and rider behavior.
-
-The analysis follows the **six-step data analytics process**: Ask → Prepare → Process → Analyze → Share → Act.
+The analysis follows the six-step data analytics process: Ask → Prepare → Process → Analyze → Share → Act.
 
 ---
 
@@ -18,8 +16,8 @@ The analysis follows the **six-step data analytics process**: Ask → Prepare �
 The project aims to answer the following:
 
 1. How do annual members and casual riders differ in trip frequency, duration, and usage patterns?  
-2. What factors or motivations could prompt casual riders to purchase annual memberships?  
-3. How can Cyclistic leverage digital media to influence casual riders to become members?
+2. Which factors could motivate casual riders to purchase annual memberships?
+3. How can Cyclistic leverage marketing and promotions to increase member conversion?
 
 These questions inform marketing strategies designed to convert casual riders into annual members.
 
@@ -27,112 +25,117 @@ These questions inform marketing strategies designed to convert casual riders in
 
 ## 📥 Data Collection and Preparation (Prepare Phase)
 **Data Sources:**  
-- Divvy bike trip system (Q1 2019 and Q1 2020)  
-- CSV format, one row per trip  
+- Divvy/Cyclistic bike trip system (Jan 2024 – Dec 2025)
+- CSV format, one row per trip
+- All data anonymized (no PII)
 
 **Key Fields:**  
-- trip_id, start_time, end_time  
-- start_station_id, start_station_name, end_station_id, end_station_name  
-- user_type (casual/member)  
-- start_lat/lng, end_lat/lng  
+- ride_id – unique trip identifier
+- start_time / end_time – timestamps for ride start and end
+- rideable_type – type of vehicle (Classic Bike, Electric Bike, Electric Scooter)
+- start_station_name / start_station_id, end_station_name / end_station_id – station information
+- start_lat, start_lng, end_lat, end_lng – geographic coordinates
+- member_casual – rider classification (Member or Casual)
 
-**Data Cleaning:**  
-- Negative or zero trip durations (8,153 records) → set to NA
-- Extreme durations (<1 min or >24 hours) → excluded from analysis
-- Duplicate records → none detected
-- Missing values were assessed and did not impact the final analysis
-- Columns not relevant to the analysis (e.g., demographic attributes) were removed
+**Initial Data Assessment:**
+- Missing values: some rides missing station names/IDs (2–2.3M) or end coordinates (12,767 rides); documented for potential spatial filtering.
+- Duplicate records: 211 duplicate ride_ids detected.
+- Column variability: raw column names and labels noted (e.g., member vs casual, classic_bike vs electric_bike vs scooter_bike).
 
 **Data Quality (ROCCC):**
 - Reliable, Objective, Complete, Consistent, Current
 
+This phase establishes a full understanding of the raw dataset, ensuring all subsequent transformations are reproducible and based on a reliable starting point. 
 All data is **anonymized** and stored in `/data`.
-
-### ⚠️ Limitations
-
-One important consideration is that the 2020 data reflects atypical mobility patterns due to the onset of the COVID-19 pandemic. As a result, some observed behavioral differences may not fully represent long-term, non-pandemic usage patterns. This should be considered when generalizing findings beyond the analyzed period.
 
 ---
 
 ## 🧹 Data Transformation (Process Phase)
 Performed with **R (tidyverse)**:
 
-1. **Column Standardization:** harmonized 2019 and 2020 datasets; removed redundant columns.  
-2. **Ride Duration Calculation:** standardized to `duration_mins` for all trips.  
-3. **Station Coordinates Completion:** merged unique station tables to fill missing lat/lng.  
-4. **HQ QR Station Treatment:** preserved in dataset, excluded from maps in Tableau.  
-5. **Feature Engineering:** added `day_of_week`, `month`, `hour`, `part_of_day`.  
-6. **User Type Standardization:** recoded `Subscriber/Member → Member`, `Customer/Casual → Casual`.  
-7. **Dataset Consolidation:** merged 2019 and 2020 into **all_trips** → 791,956 trips, 19 variables.  
+1. **Duplicate Removal:** removed 211 duplicate ride_ids.  
+2. **Column Standardization and Recoding:** member_casual → user_type (Member / Casual) and rideable_type → vehicle_type (Classic Bike / Electric Bike / Electric Scooter)
+3. **Ride Duration Calculation & Filtering:** ride_length_min = ended_at - started_at and Negative, zero, <1 min, or >24h durations removed (292,069 rides excluded). 
+4. **Temporal Feature Engineering:** Added ride_date, day_of_week, month, hour, part_of_day, is_weekend.
+5. **Geographic Filtering & Feature Engineering:** Trips outside Chicago bounding box removed (333 rides) and rounded coordinates to ~100 m (lat_round, lng_round) for spatial analysis.
+6. **Final Dataset Consolidation:** 11,120,949 rides × 22 variables, ready for descriptive and spatial analysis. 
 
 All scripts are in `/scripts`.
 
 ---
 
 ## 📊 Data Analysis (Analyze Phase)
-Analysis focused on six dimensions:
+Analysis focused on seven dimensions:
 
-### 1️⃣ Overall User Distribution
-- **Annual members:** 90.05% of rides  
-- **Casual riders:** 9.05%  
-- Insight: opportunity to convert casual riders into members.
+### 1️⃣ User Distribution
+- Members: 7,125,281 rides (64.1%)
+- Casuals: 3,995,668 rides (35.9%) 
+- **Insight:** Members form the core recurring demand; casual riders are significant for leisure usage.
+- **Business Implication:** Targeted conversion strategies could increase recurring revenue.
 
 ### 2️⃣ Weekly Usage Patterns
-- Casuals peak on **weekends** (Saturdays 19%, Sundays 26%)  
-- Members stable **weekdays**, peak Tue–Thu (17–18%)
+Casuals: peak weekends (Saturday 20.6%, Sunday 16.9%)
+Members: consistent weekdays (>1M rides/day)
+**Insight:** Casual riders mostly leisure-oriented; members follow commuting patterns.
+**Implication:** Weekend promotions for casual riders; highlight membership benefits for frequent usage.
 
-### 3️⃣ Daily Usage Trends
-- Members: commute peaks (7–9 AM, 4–6 PM)  
-- Casuals: moderate, evenly distributed throughout the day  
-- Heatmaps confirm weekday vs. weekend behavior
+### 3️⃣ Hourly Usage Patterns
+Members peak at 8 AM (morning) & 5 PM (evening)
+Casuals peak in late afternoon and weekends
+**Implication:** Conversion campaigns could emphasize weekday commuting benefits for casual riders.
 
 ### 4️⃣ Ride Duration
-- Casuals: 36–41 mins average  
-- Members: 11–13 mins average  
-- Distribution: 72% of casual trips >15 mins, 78% of member trips <15 mins
+Members: 75.5% of rides 0–15 min
+Casuals: 59.4% 0–15 min; 5.3% >60 min
+**Insight:** Casuals take longer, especially weekends → leisure use
+**Implication:** Memberships could be marketed for recreational trips.
 
-### 5️⃣ Temporal Evolution
-- Seasonal growth: casual rides increased 3x from Jan → Mar  
-- Members stable, higher overall volume
+### 5️⃣ Monthly Trends
+Seasonal pattern: peak in summer, low in winter
+Casuals: stronger seasonality, up to 15.79% rides in August
+Members: more consistent across year
+**Implication:** Focus campaigns during spring/summer for casual rider conversion.
 
 ### 6️⃣ Geographic Patterns
-- Members: widespread, residential/business areas  
-- Casuals: concentrated near waterfront areas and tourist attractions  
-- Insight: location-based marketing opportunities
+Casual ride hotspots near tourist attractions and lakefronts
+Members distributed across city → commuting and regular use
+**Implication:** Promote membership at leisure/tourist hotspots.
+
+### 7️⃣ Vehicle Type Usage
+Electric bikes most used, followed by classic bikes, then e-scooters
+Casuals take longer trips across all vehicle types
+**Implication:** Conversion focus should remain on behavior patterns rather than bike type.
 
 Visualizations are in `/visuals`.
 
 ---
 
 ## 📨 Share Phase
-Insights were shared via an **interactive Tableau dashboard**, summarizing user distribution, temporal patterns, ride duration, and spatial behavior.  
-Decision-makers can explore actionable opportunities for marketing strategies targeting casual riders.
+- Interactive dashboard developed in Tableau Desktop
+- Highlights differences in:
+   Hourly and daily patterns
+   Ride duration
+   Monthly and seasonal trends
+   Geographic distribution & tourist areas
+- Dashboard preview included below:
+
+![Dashboard Preview](../visuals/figure-11-final-dashboard.png)
 
 Dashboard files are located in `/dashboard`.
 
 ---
 
 ## 🚀 Act Phase — Recommendations
-**Foundational Requirement:** implement basic first-party data collection (e.g., app login, email opt-in, QR/SMS ride confirmation) to track returning riders and campaign performance.
 
 ### Top Three Strategic Recommendations:
-1. **Membership Strategy Optimization**  
-   - Seasonal 6-month summer membership  
-   - Weekend-only membership  
-   - Recreation bundle (e.g., 5 rides/month)  
-   - Use decoy pricing to highlight annual membership value  
+1. **Promote Membership for Frequent Riders**  
+   - Highlight long-term value and cost benefits.
 
-2. **Events and On-Ground Engagement**  
-   - Recreational group rides  
-   - Fitness-oriented events  
-   - Location-based pop-ups at high-traffic points  
+2. **Target Marketing in Tourist & Recreational Areas**  
+   - Promotional signage and partnerships near hotspots.
 
-3. **Strategic Partnerships**  
-   - Hotels & tourism operators  
-   - Local mobility & wellness partners  
-   - Business & employer engagement  
-
-Goal: nudge casual riders toward membership through targeted experiences and offers.
+3. **Encourage Weekday Usage via Commuting Campaigns**  
+   - Emphasize convenience and time savings compared to other transport.
 
 ---
 
@@ -140,46 +143,36 @@ Goal: nudge casual riders toward membership through targeted experiences and off
 
 cyclistic-case-study/
 
-├── `data/` # Raw and cleaned datasets
+├── `data/` # Raw and cleaned datasets (Jan 2024 – Dec 2025)
 
 ├── `scripts/` # Data cleaning and analysis scripts (.R)
 
-├── `visuals/` Charts and images used in the report or dashboard
+├── `visuals/` Charts and images used in the report/dashboard
 
 ├── `dashboard/` # Tableau dashboard files (.twb / .twbx)
 
-├── `final-report/` # Final report (DOCX or PDF)
+├── `final-report/` # Final report (PDF/DOCX)
 
-├── `README.md` # Project documentation 
+├── `README.md` # Project documentation (this file)
 
 ---
 
 ## 📜 Conclusion
-Cyclistic now has a **clear understanding of behavioral differences** between annual members and casual riders.  
-Insights support **data-driven marketing strategies**, optimized membership plans, and partnerships that can increase casual-to-member conversions.  
-This capstone demonstrates how **analytics informs product strategy, marketing execution, and rider loyalty**.
+- Clear behavioral differences observed between casual riders and members
+- Casuals: leisure-oriented, weekends, tourist areas
+- Members: consistent usage, commuting patterns, shorter trips
+- Recommendations provide actionable strategies for increasing member conversion and enhancing service engagement.
 
 ---
 
 ## 📄 Data License
-The data used in this analysis comes from the Divvy Bike Share System,
-operated by Lyft Bikes and Scooters, LLC, and made publicly available
-by the City of Chicago.
-
-The dataset is subject to the Divvy Data License Agreement and is used
-solely for non-commercial, educational, and analytical purposes.
-
-Source and license:
-https://www.divvybikes.com/system-data
+- Source: Divvy Bike Share System (Lyft Bikes and Scooters, LLC)
+- Publicly available: https://www.divvybikes.com/system-data
+- Educational and analytical use only.
 
 ---
 
 ## 👨‍💻 Author
-Julio Rodrigues  
-Data Analyst  
+Julio Rodrigues - Data Analyst  
 [LinkedIn](https://www.linkedin.com/in/julio-cesar-rodrigues/) | Portfolio | [GitHub](https://github.com/juliorodrigues97)
-
----
-
-Backup: version using 2019-2020 data
 
