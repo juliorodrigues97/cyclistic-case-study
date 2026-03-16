@@ -124,7 +124,7 @@ Visualizations are in `/visuals`.
 ## Share Phase
 - Interactive dashboard developed in Tableau Desktop
   
-- Highlights differences in:
+- Highlights differences in:  
    - Hourly and daily patterns  
    - Ride duration  
    - Monthly and seasonal trends  
