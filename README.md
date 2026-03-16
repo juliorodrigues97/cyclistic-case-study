@@ -38,9 +38,9 @@ These questions inform marketing strategies designed to convert casual riders in
 - member_casual – rider classification (Member or Casual)
 
 **Initial Data Assessment:**
-- Missing values: some rides missing station names/IDs (2–2.3M) or end coordinates (12,767 rides); documented for potential spatial filtering.
-- Duplicate records: 211 duplicate ride_ids detected.
-- Column variability: raw column names and labels noted (e.g., member vs casual, classic_bike vs electric_bike vs scooter_bike).
+- **Missing values:** some rides missing station names/IDs (2–2.3M) or end coordinates (12,767 rides); documented for potential spatial filtering.
+- **Duplicate records:** 211 duplicate ride_ids detected.
+- **Column variability:** raw column names and labels noted (e.g., member vs casual, classic_bike vs electric_bike vs scooter_bike).
 
 **Data Quality (ROCCC):**
 - Reliable, Objective, Complete, Consistent, Current
@@ -108,7 +108,7 @@ Members distributed across city → commuting and regular use
 **Implication:** Promote membership at leisure/tourist hotspots.
 
 ### 7️⃣ Vehicle Type Usage
-Electric bikes most used, followed by classic bikes, then e-scooters
+Electric bikes most used, followed by classic bikes, then e-scooter
 Casuals take longer trips across all vehicle types
 **Implication:** Conversion focus should remain on behavior patterns rather than bike type.
 
