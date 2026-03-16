@@ -130,7 +130,7 @@ Visualizations are in `/visuals`.
    Geographic distribution & tourist areas
 - Dashboard preview included below:
 
-![Dashboard Preview](../visuals/visuals/final-dashboard - Copy.png)
+![Dashboard Preview](..visuals/final-dashboard - Copy.png)
 
 Dashboard files are located in `/dashboard`.
 
