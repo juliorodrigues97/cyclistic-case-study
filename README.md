@@ -1,8 +1,8 @@
 # 🚲 Cyclistic Case Study  
 
-![Dashboard Preview](visuals/figure-11-final-dashboard.png)
-
 ### Google Data Analytics Certificate — Behavioral Analysis of Casual vs. Annual Members
+
+![Dashboard Preview](visuals/figure-11-final-dashboard.png)
 
 ---
 
