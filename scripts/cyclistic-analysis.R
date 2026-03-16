@@ -329,48 +329,7 @@ ggplot(vehicle_distribution,
   ) +
   theme_minimal()
 
-# Média de duração por tipo de bike e usuário
-avg_duration_rides <- cyclistic_cleaned %>%
-  group_by(user_type, vehicle_type) %>%
-  summarise(avg_ride_length = mean(ride_length_min, na.rm = TRUE),
-            median_ride_length = median(ride_length_min, na.rm = TRUE),
-            n = n()) %>%
-  ungroup()
-
-# Ver tabela
-avg_duration_rides
-
-# Gráfico de barras
-ggplot(avg_duration_rides, aes(x = vehicle_type, y = avg_ride_length, fill = user_type)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(title = "Duração Média de Viagens por Tipo de Bike e Usuário",
-       x = "Tipo de Bike", y = "Duração Média (minutos)", fill = "Tipo de Usuário") +
-  theme_minimal()
-
-install.packages('geosphere', repos='https://rspatial.r-universe.dev')
-library(geosphere)
-
-all_trips_cleaned <- cyclistic_cleaned %>%
-  mutate(distance_m = distHaversine(
-    cbind(start_lng, start_lat),
-    cbind(end_lng, end_lat)
-  ),
-  distance_km = distance_m / 1000)  # converter para km
-
-# Média de distância por tipo de bike e usuário
-avg_distance <- all_trips_cleaned %>%
-  group_by(user_type, vehicle_type) %>%
-  summarise(avg_distance_km = mean(distance_km, na.rm = TRUE)) %>%
-  ungroup()
-
-# Gráfico
-ggplot(avg_distance, aes(x = vehicle_type, y = avg_distance_km, fill = user_type)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(title = "Distância Média por Tipo de Bike e Usuário",
-       x = "Tipo de Bike", y = "Distância Média (km)", fill = "Tipo de Usuário") +
-  theme_minimal()
-
-# Top stations  *************************************************************
+# VII) Top stations  *************************************************************
 top_stations <- cyclistic_cleaned %>%
   filter(!is.na(start_station_name)) %>%
   group_by(user_type, start_station_name) %>%
@@ -402,7 +361,7 @@ top_stations %>%
 # 14. Export cleaned dataset
 # ---------------------------
 
-write_csv(cyclistic_cleaned, "C:/Users/jujuf/Documents/Google Data Analytics Certificate/capstone/version.2/cyclistic_processed.csv")
+write_csv(cyclistic_cleaned, "C:/Users/jujuf/Documents/google-certificate/capstone/version-2/datasets/cyclistic_processed.csv")
 
 
 
