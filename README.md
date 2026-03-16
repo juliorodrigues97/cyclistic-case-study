@@ -3,6 +3,8 @@
 
 ---
 
+![Dashboard Preview](../visuals/figure-11-final-dashboard.png)
+
 ## Overview
 Cyclistic is a bike-share program in Chicago with 5,824 bicycles and 692 docking stations, operating since 2016. Customers who purchase single-ride or full-day passes are classified as casual riders, while those with annual memberships are Cyclistic members.
 
