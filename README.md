@@ -54,15 +54,15 @@ All data is **anonymized** and stored in `/data`.
 Performed with **R (tidyverse)**:
 
 1. **Duplicate Removal:** removed 211 duplicate ride_ids.  
-2. **Column Standardization and Recoding:**
-   member_casual → user_type (Member / Casual)
+2. **Column Standardization and Recoding:**  
+   member_casual → user_type (Member / Casual)  
    rideable_type → vehicle_type (Classic Bike / Electric Bike / Electric Scooter)
-4. **Ride Duration Calculation & Filtering:**
-   ride_length_min = ended_at - started_at
+4. **Ride Duration Calculation & Filtering:**  
+   ride_length_min = ended_at - started_at  
    Negative, zero, <1 min, or >24h durations removed (292,069 rides excluded).
 6. **Temporal Feature Engineering:** Added ride_date, day_of_week, month, hour, part_of_day, is_weekend.
-8. **Geographic Filtering & Feature Engineering:**
-   Trips outside Chicago bounding box removed (333 rides)
+8. **Geographic Filtering & Feature Engineering:**  
+   Trips outside Chicago bounding box removed (333 rides)  
    Rounded coordinates to ~100 m (lat_round, lng_round) for spatial analysis.
 10. **Final Dataset Consolidation:** 11,120,949 rides × 22 variables, ready for descriptive and spatial analysis. 
 
@@ -74,43 +74,43 @@ All scripts are in `/scripts`.
 Analysis focused on seven dimensions:
 
 ### 1️⃣ User Distribution
-Members: 7,125,281 rides (64.1%)
-Casuals: 3,995,668 rides (35.9%)
-**Insight:** Members form the core recurring demand; casual riders are significant for leisure usage.
-**Business Implication:** Targeted conversion strategies could increase recurring revenue.
+Members: 7,125,281 rides (64.1%)  
+Casuals: 3,995,668 rides (35.9%)  
+**Insight:** Members form the core recurring demand; casual riders are significant for leisure usage.  
+**Business Implication:** Targeted conversion strategies could increase recurring revenue.  
 
 2️⃣ Weekly Usage Patterns
-Casuals: peak weekends (Saturday 20.6%, Sunday 16.9%)
-Members: consistent weekdays (>1M rides/day)
-**Insight:** Casual riders mostly leisure-oriented; members follow commuting patterns.
+Casuals: peak weekends (Saturday 20.6%, Sunday 16.9%)  
+Members: consistent weekdays (>1M rides/day)  
+**Insight:** Casual riders mostly leisure-oriented; members follow commuting patterns.  
 **Implication:** Weekend promotions for casual riders; highlight membership benefits for frequent usage.
 
-3️⃣ Hourly Usage Patterns
-Members peak at 8 AM (morning) & 5 PM (evening)
-Casuals peak in late afternoon and weekends
-**Implication:** Conversion campaigns could emphasize weekday commuting benefits for casual riders.
+3️⃣ Hourly Usage Patterns  
+Members peak at 8 AM (morning) & 5 PM (evening)  
+Casuals peak in late afternoon and weekends  
+**Implication:** Conversion campaigns could emphasize weekday commuting benefits for casual riders.  
 
-4️⃣ Ride Duration
-Members: 75.5% of rides 0–15 min
-Casuals: 59.4% 0–15 min; 5.3% >60 min
-**Insight:** Casuals take longer, especially weekends → leisure use
-**Implication:** Memberships could be marketed for recreational trips.
+4️⃣ Ride Duration  
+Members: 75.5% of rides 0–15 min  
+Casuals: 59.4% 0–15 min; 5.3% >60 min  
+**Insight:** Casuals take longer, especially weekends → leisure use  
+**Implication:** Memberships could be marketed for recreational trips.  
 
-5️⃣ Monthly Trends
-Seasonal pattern: peak in summer, low in winter
-Casuals: stronger seasonality, up to 15.79% rides in August
-Members: more consistent across year
-**Implication:** Focus campaigns during spring/summer for casual rider conversion.
+5️⃣ Monthly Trends  
+Seasonal pattern: peak in summer, low in winter  
+Casuals: stronger seasonality, up to 15.79% rides in August  
+Members: more consistent across year  
+**Implication:** Focus campaigns during spring/summer for casual rider conversion.  
 
-6️⃣ Geographic Patterns
-Casual ride hotspots near tourist attractions and lakefronts
-Members distributed across city → commuting and regular use
-**Implication:** Promote membership at leisure/tourist hotspots.
+6️⃣ Geographic Patterns  
+Casual ride hotspots near tourist attractions and lakefronts  
+Members distributed across city → commuting and regular use  
+**Implication:** Promote membership at leisure/tourist hotspots.  
 
-7️⃣ Vehicle Type Usage
-Electric bikes most used, followed by classic bikes, then e-scooters
-Casuals take longer trips across all vehicle types
-**Implication:** Conversion focus should remain on behavior patterns rather than bike type.
+7️⃣ Vehicle Type Usage  
+Electric bikes most used, followed by classic bikes, then e-scooters  
+Casuals take longer trips across all vehicle types  
+**Implication:** Conversion focus should remain on behavior patterns rather than bike type.  
 
 Visualizations are in `/visuals`.
 
