@@ -54,11 +54,17 @@ All data is **anonymized** and stored in `/data`.
 Performed with **R (tidyverse)**:
 
 1. **Duplicate Removal:** removed 211 duplicate ride_ids.  
-2. **Column Standardization and Recoding:** member_casual → user_type (Member / Casual) and rideable_type → vehicle_type (Classic Bike / Electric Bike / Electric Scooter)
-3. **Ride Duration Calculation & Filtering:** ride_length_min = ended_at - started_at and Negative, zero, <1 min, or >24h durations removed (292,069 rides excluded). 
-4. **Temporal Feature Engineering:** Added ride_date, day_of_week, month, hour, part_of_day, is_weekend.
-5. **Geographic Filtering & Feature Engineering:** Trips outside Chicago bounding box removed (333 rides) and rounded coordinates to ~100 m (lat_round, lng_round) for spatial analysis.
-6. **Final Dataset Consolidation:** 11,120,949 rides × 22 variables, ready for descriptive and spatial analysis. 
+2. **Column Standardization and Recoding:**
+   member_casual → user_type (Member / Casual)
+   rideable_type → vehicle_type (Classic Bike / Electric Bike / Electric Scooter)
+4. **Ride Duration Calculation & Filtering:**
+   ride_length_min = ended_at - started_at
+   Negative, zero, <1 min, or >24h durations removed (292,069 rides excluded). 
+6. **Temporal Feature Engineering:** Added ride_date, day_of_week, month, hour, part_of_day, is_weekend.
+7. **Geographic Filtering & Feature Engineering:**
+   Trips outside Chicago bounding box removed (333 rides)
+   Rounded coordinates to ~100 m (lat_round, lng_round) for spatial analysis.
+9. **Final Dataset Consolidation:** 11,120,949 rides × 22 variables, ready for descriptive and spatial analysis. 
 
 All scripts are in `/scripts`.
 
@@ -69,7 +75,7 @@ Analysis focused on seven dimensions:
 
 ### 1️⃣ User Distribution
 - Members: 7,125,281 rides (64.1%)
-- Casuals: 3,995,668 rides (35.9%) 
+- Casuals: 3,995,668 rides (35.9%)
 - **Insight:** Members form the core recurring demand; casual riders are significant for leisure usage.
 - **Business Implication:** Targeted conversion strategies could increase recurring revenue.
 
@@ -119,7 +125,7 @@ Visualizations are in `/visuals`.
    Geographic distribution & tourist areas
 - Dashboard preview included below:
 
-![Dashboard Preview](../visuals/figure-11-final-dashboard.png)
+![Dashboard Preview](../visuals/figure-11-final-dashboard.png) 
 
 Dashboard files are located in `/dashboard`.
 
