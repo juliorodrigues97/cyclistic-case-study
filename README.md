@@ -124,10 +124,10 @@ Visualizations are in `/visuals`.
 ## Share Phase
 - Interactive dashboard developed in Tableau Desktop  
 - Highlights differences in:  
-   Hourly and daily patterns  
-   Ride duration  
-   Monthly and seasonal trends  
-   Geographic distribution & tourist areas  
+   - Hourly and daily patterns  
+   - Ride duration  
+   - Monthly and seasonal trends  
+   - Geographic distribution & tourist areas  
 
 Dashboard files are located in `/dashboard`.
 
