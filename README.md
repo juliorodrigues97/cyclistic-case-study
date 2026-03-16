@@ -128,9 +128,6 @@ Visualizations are in `/visuals`.
    Ride duration
    Monthly and seasonal trends
    Geographic distribution & tourist areas
-- Dashboard preview included below:
-
-![Dashboard Preview](../visuals/final-dashboard - Copy.png)
 
 Dashboard files are located in `/dashboard`.
 
