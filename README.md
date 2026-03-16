@@ -130,7 +130,7 @@ Visualizations are in `/visuals`.
    Geographic distribution & tourist areas
 - Dashboard preview included below:
 
-![Dashboard Preview](../visuals/figure-11-final-dashboard.png)
+![Dashboard Preview](../visuals/final-dashboard.png)
 
 Dashboard files are located in `/dashboard`.
 
@@ -183,7 +183,7 @@ cyclistic-case-study/
 
 ---
 
-## 👨‍💻 Author
+## Author
 Julio Rodrigues - Data Analyst  
 [LinkedIn](https://www.linkedin.com/in/julio-cesar-rodrigues/) | Portfolio | [GitHub](https://github.com/juliorodrigues97)
 
