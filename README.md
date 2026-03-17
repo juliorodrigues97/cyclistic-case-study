@@ -125,7 +125,9 @@ Visualizations are in `/visuals`.
 ---
 
 ## Share Phase
-- Interactive dashboard developed in Tableau Desktop
+- Interactive dashboard developed in Tableau Desktop and can be accessed here:
+
+  [View Interactive Dashboard on Tableau Public](https://public.tableau.com/views/cyclistic-dashboard/FinalDash?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
   
 - Highlights differences in:  
    - Hourly and daily patterns  
